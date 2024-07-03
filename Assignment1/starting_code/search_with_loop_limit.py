@@ -13,9 +13,9 @@ def search_with_loop_limit(sorted_lst, n, d=0):
         return f'(False, {d})'
     elif len(sorted_lst) == 1:
         if sorted_lst[0] != n:
-            return f'(False, {d})'
+            return (False, d+1)
         else:
-            return f'(True, {d})'
+            return (True, d+1)
     else:
         mid = math.floor(len(sorted_lst) / 2)
         if sorted_lst[mid] > n:
@@ -23,7 +23,7 @@ def search_with_loop_limit(sorted_lst, n, d=0):
         elif sorted_lst[mid] < n:
             return search_with_loop_limit(sorted_lst[mid + 1:], n, d + 1)
         elif sorted_lst[mid] == n:
-            return f'(True, {d})'
+            return (True, d)
 
 
 if __name__ == "__main__":
